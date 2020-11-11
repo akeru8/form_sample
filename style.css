@@ -2,8 +2,8 @@ body {
     position: relative;
     min-height: 100%;
     background: #f5f5f5;
-    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
     font-size: 14px;
+    font-family: 'Toppan Bunkyu Gothic'; font-weight: bold;
     color: #333;
     line-height: 1;
 }
@@ -17,13 +17,16 @@ main {
 }
 .l-single-head-registration {
 	font-size: 22px;
-	padding: 32px;
+	padding: 50px 32px 32px 32px;
 	line-height: 1.5;
 	text-align: center;
 }
 .input-form {
 	border-top: 1px solid #f5f5f5;
 	padding: 24px 16px 40px;
+}
+div {
+    display: block;
 }
 .l-single-content {
 	margin: 0 auto;
@@ -38,14 +41,11 @@ main {
 .form-group label {
 	font-weight: 600;
 }
-div {
-    display: block;
-}
 label {
     display: inline-block;
 }
 .form-require {
-    background: #ea352d;
+    background: #e6002f;
     margin: 0 0 0 8px;
     padding: 2px 4px;
     border-radius: 2px;
@@ -91,7 +91,7 @@ label {
 	margin: 0;
 }
 .any {
-	background: #0099e8;
+	background:    #0068b7;
     margin: 0 0 0 8px;
     padding: 2px 4px;
     border-radius: 2px;
@@ -111,7 +111,7 @@ label {
     font-size: 16px;
 }
 .button-red {
-    background: #ea352d;
+    background: #e6002f;
     border: 1px solid #ea352d;
     color: #fff;
 }
