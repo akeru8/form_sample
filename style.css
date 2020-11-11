@@ -136,6 +136,6 @@ form input:focus:valid + .error .invalid {
     display: none;
 }
 /* OKなら、その他のテキストボックス以外を緑にする */
-form input:valid {
+form input:not(:last-child):valid {
   border : seagreen 2px solid;
 }

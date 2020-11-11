@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     // 住所検索ボタンを押すと外部apiを叩く処理が走る。
     $('#search_address_btn').click(function() {
-        $.getJSON('http://zipcloud.ibsnet.co.jp/api/search?callback=?',
+        $.getJSON('https://zipcloud.ibsnet.co.jp/api/search?callback=?',
             {
             zipcode: $('#zip_code').val()
             }
