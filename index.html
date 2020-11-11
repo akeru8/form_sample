@@ -1,8 +1,11 @@
 <!DOCTYPE>
 <html>
 <head>
+	<title>当選者情報入力フォーム</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- ajax通信用 -->
+	<script src="postal_api.js"></script> <!-- //jsファイルの読み込み -->
 </head>
 <body>
 	<header>
@@ -33,17 +36,18 @@
 					</div>
 					<div class="form-group">
 						<label for="postal-code">郵便番号</label>
+						<input type="button" value="住所検索" id="search_address_btn">
 						<span class="form-require">必須</span>
 						<div>
-							<span  class="mark">〒</span><input type="text" name="postal-code" placeholder="1234567" class="input-default-2">
+							<span  class="mark">〒</span><input type="text" name="zip_code" placeholder="1234567" class="input-default-2" id="zip_code">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="address">住所</label>
 						<span class="form-require">必須</span>
-						<input type="text" name="prefecture" placeholder="都道府県" class="input-default">
-						<input type="text" name="city" placeholder="市区町村" class="input-default half">
-						<input type="text" name="area" placeholder="番地・建物名・部屋番号" class="input-default">
+						<input type="text" name="address1" placeholder="都道府県" class="input-default" id="address1">
+						<input type="text" name="address2" placeholder="市区町村" class="input-default half" id="address2">
+						<input type="text" name="address3" placeholder="番地・建物名・部屋番号" class="input-default" id="address3">
 					</div>
 					<div class="form-group">
 						<label for="phone-number">電話番号</label>
