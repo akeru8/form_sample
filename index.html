@@ -6,66 +6,98 @@
 	<link rel="stylesheet" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- ajax通信用 -->
 	<script src="postal_api.js"></script> <!-- //jsファイルの読み込み -->
+	<script type="text/javascript">
+		function check(){
+			if(window.confirm('送信してよろしいですか？')){ // 確認ダイアログを表示
+				return true; // 「OK」時は送信を実行
+			}
+			else{ // 「キャンセル」時の処理
+				window.alert('キャンセルされました'); // 警告ダイアログを表示
+				return false; // 送信を中止
+			}
+		}
+	</script>
 </head>
 <body>
 	<header>
 	</header>
 	<main>
 		<section class="l-single-container">
-			<h1 class="l-single-head-registration">キャンペーン<br>
+			<h1 class="l-single-head-registration">Twitterフォロー&リツイートキャンペーン<br>
 				当選者情報入力フォーム
 			</h1>
-			<form class="input-form">
+			<form class="input-form" method="POST" action="example.cgi" onSubmit="return check()">
 				<div class="l-single-content">
 					<div class="form-group">
 						<label for="twitter-id">Twitter ID</label>
 						<span class="form-require">必須</span>
 						<div>
-							<span class="mark">@</span><input type="text" name="twitter-id" placeholder="Twitter ID" class="input-default-2"　autocorrect="off" autocapitalize="off">
+							<span class="mark">@</span><input type="text" name="twitter-id" placeholder="Twitter ID" class="input-default-2" pattern="^[0-9A-Za-z]+$" required />
 						</div>
+						<p class="error">
+							<span class="invalid"></span>
+						</p>
 					</div>
 					<div class="form-group">
 						<label for="name">氏名</label>
 						<span class="form-require">必須</span>
-						<input type="text" name="name" placeholder="氏名" class="input-default">
+						<input type="text" name="name" placeholder="氏名" class="input-default" required />
+						<p class="error">
+							<span class="invalid"></span>
+						</p>
 					</div>
 					<div class="form-group">
 						<label for="furigana">ふりがな</label>
 						<span class="form-require">必須</span>
-						<input type="text" name="furigana" placeholder="ふりがな" class="input-default">
+						<input type="text" name="furigana" placeholder="ふりがな" class="input-default" pattern="(?=.*?[\u3041-\u309F])[\u3041-\u309F\s]*" required />
+						<p class="error">
+							<span class="invalid"></span>
+						</p>
 					</div>
 					<div class="form-group">
 						<label for="postal-code">郵便番号</label>
 						<input type="button" value="住所検索" id="search_address_btn">
 						<span class="form-require">必須</span>
 						<div>
-							<span  class="mark">〒</span><input type="text" name="zip_code" placeholder="1234567" class="input-default-2" id="zip_code">
+							<span  class="mark">〒</span><input type="text" name="zip_code" placeholder="1234567" class="input-default-2" id="zip_code" pattern="\d{3}-?\d{4}" required />
 						</div>
+						<p class="error">
+							<span class="invalid"></span>
+						</p>
 					</div>
 					<div class="form-group">
 						<label for="address">住所</label>
 						<span class="form-require">必須</span>
-						<input type="text" name="address1" placeholder="都道府県" class="input-default" id="address1">
-						<input type="text" name="address2" placeholder="市区町村" class="input-default half" id="address2">
-						<input type="text" name="address3" placeholder="番地・建物名・部屋番号" class="input-default" id="address3">
+						<input type="text" name="address1" placeholder="都道府県" class="input-default" id="address1" required />
+						<input type="text" name="address2" placeholder="市区町村" class="input-default half" id="address2" required />
+						<input type="text" name="address3" placeholder="番地・建物名・部屋番号" class="input-default" id="address3" required />
+						<p class="error">
+							<span class="invalid"></span>
+						</p>
 					</div>
 					<div class="form-group">
 						<label for="phone-number">電話番号</label>
 						<span class="form-require">必須</span>
-						<input type="tel" name="phone-number" placeholder="031234567" class="input-default">
+						<input type="tel" name="phone-number" placeholder="031234567" class="input-default" pattern="\d{2,4}-\d{3,4}-\d{3,4}" required />
+						<p class="error">
+							<span class="invalid"></span>
+						</p>
 					</div>
 					<div class="form-group">
 						<label for="email">メールアドレス</label>
 						<span class="form-require">必須</span>
-						<input type="email" name="email" placeholder="abc-123@domain.example" class="input-default">
+						<input type="email" name="email" placeholder="abc-123@domain.example" class="input-default" required />
+						<p class="error">
+							<span class="invalid"></span>
+						</p>
 					</div>
 					<div class="form-group">
 						<label for="radio">現在このサービスを利用していますか？</label>
 						<span class="form-require">必須</span>
 						<p class="button-box">
-							<input type="radio" name="radio" class="radio-button" value="はい">
+							<input type="radio" name="radio" class="radio-button" value="はい" required />
 							<span class="yes">はい</span>
-							<input type="radio" name="radio" class="radio-button" value="いいえ">
+							<input type="radio" name="radio" class="radio-button" value="いいえ" required />
 							<span class="no">いいえ</span>
 						</p>
 					</div>
